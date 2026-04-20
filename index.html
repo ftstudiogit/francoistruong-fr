@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>François Truong — Conseil IA</title>
+<meta name="description" content="François Truong accompagne startups et PME pour tirer pleinement profit de l'IA. De la stratégie à l'action." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #2C2C2C;
+    --bronze: #8B7355;
+    --stone: #C4B5A0;
+    --paper: #F5F3EF;
+    --white: #FFFFFF;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ——— NAV ——— */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245, 243, 239, 0.92);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+  .brand-dot { color: var(--bronze); }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; }
+  .nav-links a {
+    color: var(--ink);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    padding: 10px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--bronze); }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+
+  /* ——— HERO ——— */
+  .hero {
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 6px;
+    background: var(--bronze);
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: -0.02em;
+    max-width: 900px;
+    margin-bottom: 32px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--bronze);
+  }
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.65;
+    max-width: 640px;
+    color: #4a4a4a;
+    margin-bottom: 48px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--bronze); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+
+  .hero-meta {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(44, 44, 44, 0.12);
+    flex-wrap: wrap;
+  }
+  .hero-meta-item .label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .hero-meta-item .value {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  /* ——— SECTION ——— */
+  section {
+    padding: 100px 0;
+  }
+  section.alt {
+    background: var(--white);
+  }
+  .section-head {
+    margin-bottom: 64px;
+    max-width: 720px;
+  }
+  .section-head .eyebrow {
+    margin-bottom: 16px;
+  }
+  .section-head h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .section-head p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4a4a4a;
+  }
+
+  /* ——— APPROCHE ——— */
+  .approach {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .approach-text p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+  }
+  .approach-text p:first-child {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .approach-card {
+    background: var(--paper);
+    border-left: 3px solid var(--bronze);
+    padding: 40px 36px;
+  }
+  .approach-card h3 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .approach-card ul {
+    list-style: none;
+  }
+  .approach-card li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+    font-size: 15px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .approach-card li:last-child { border-bottom: none; }
+  .approach-card li::before {
+    content: "—";
+    color: var(--bronze);
+    font-weight: 700;
+  }
+  @media (max-width: 860px) {
+    .approach { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ——— SERVICES ——— */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(44, 44, 44, 0.12);
+    border: 1px solid rgba(44, 44, 44, 0.12);
+  }
+  .service {
+    background: var(--paper);
+    padding: 48px 40px;
+    transition: background 0.3s;
+    position: relative;
+  }
+  .service:hover { background: var(--white); }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--bronze);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .service h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+  .service p {
+    color: #4a4a4a;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  @media (max-width: 720px) {
+    .services { grid-template-columns: 1fr; }
+  }
+
+  /* ——— STACK ——— */
+  .stack-wrap {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 96px 0;
+  }
+  .stack-wrap .eyebrow { color: var(--stone); }
+  .stack-wrap h2 { color: var(--paper); }
+  .stack-wrap .section-head p { color: #c9c5be; }
+  .stack-groups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 32px;
+  }
+  .stack-group h4 {
+    color: var(--stone);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: var(--sans);
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(196, 181, 160, 0.25);
+  }
+  .stack-group ul { list-style: none; }
+  .stack-group li {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--paper);
+    padding: 8px 0;
+  }
+  @media (max-width: 720px) {
+    .stack-groups { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ——— PARCOURS ——— */
+  .timeline {
+    border-top: 1px solid rgba(44, 44, 44, 0.12);
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    gap: 40px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.12);
+    align-items: baseline;
+  }
+  .timeline-date {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--bronze);
+    font-weight: 500;
+  }
+  .timeline-role {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .timeline-role span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-top: 4px;
+  }
+  .timeline-org {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  @media (max-width: 720px) {
+    .timeline-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  }
+
+  /* ——— CONTACT ——— */
+  .contact-wrap {
+    background: #EDE6DB;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--bronze);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contact-wrap h2 {
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .contact-wrap p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #3a3a3a;
+    margin-bottom: 40px;
+  }
+  .contact-list { list-style: none; }
+  .contact-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.2);
+  }
+  .contact-list .label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  .contact-list .value {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .contact-list a:hover .value { color: var(--bronze); }
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ——— FOOTER ——— */
+  footer {
+    background: var(--ink);
+    color: var(--stone);
+    padding: 40px 0;
+    font-size: 13px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-inner .brand { color: var(--paper); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="brand">François Truong<span class="brand-dot">.</span></a>
+    <div class="nav-links">
+      <a href="#approche">Approche</a>
+      <a href="#services">Services</a>
+      <a href="#stack">Outils</a>
+      <a href="#parcours">Parcours</a>
+    </div>
+    <a href="#contact" class="nav-cta">Prendre contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Conseil IA · Paris</div>
+    <h1>De la <em>stratégie</em> à l'action.<br />L'IA qui transforme vraiment votre activité.</h1>
+    <p class="hero-lede">
+      Startups et PME, je vous accompagne pour tirer pleinement profit de l'IA — en respectant votre ADN et vos spécificités. Interlocuteur unique, de la feuille de route à la solution livrée.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Discutons de votre projet</a>
+      <a href="#approche" class="btn-secondary">Découvrir mon approche</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Expérience</span>
+        <span class="value">10+ ans</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Posture</span>
+        <span class="value">Stratège & Maker</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Terrain</span>
+        <span class="value">Startups · PME</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Basé à</span>
+        <span class="value">Paris</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="approche" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Mon approche</div>
+      <h2>Une double casquette, rare et décisive.</h2>
+    </div>
+
+    <div class="approach">
+      <div class="approach-text">
+        <p>
+          Je ne me contente pas de donner des conseils : je les réalise.
+        </p>
+        <p>
+          Aussi à l'aise pour définir la feuille de route avec l'équipe dirigeante que pour mettre les mains dans le moteur et construire vos solutions. Pas de perte d'information entre la vision et l'action : vous avez un interlocuteur unique sur toute la chaîne de valeur.
+        </p>
+        <p>
+          Plus de dix ans dans le conseil, l'entrepreneuriat et la tech — Fabernovel (Partner, Head of No Code), co-fondateur de startups, enseignant à Sciences Po, diplômé de l'ESSEC.
+        </p>
+      </div>
+      <aside class="approach-card">
+        <h3>Ce que vous obtenez</h3>
+        <ul>
+          <li>Un interlocuteur unique</li>
+          <li>Un réseau d'experts mobilisable si besoin</li>
+          <li>Des solutions sur-mesure, pas du template recyclé</li>
+          <li>Une transmission réelle aux équipes</li>
+          <li>Du ROI mesurable, pas de la démo</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Mes services</div>
+      <h2>Quatre manières de travailler ensemble.</h2>
+      <p>De la première conversation d'équipe dirigeante au déploiement d'agents IA en production — j'interviens sur toute la chaîne, ou sur le segment où vous avez besoin d'un renfort.</p>
+    </div>
+
+    <div class="services">
+      <article class="service">
+        <span class="service-num">01 — Sensibilisation & Vision</span>
+        <h3>Démystifier l'IA</h3>
+        <p>Coaching des fondateurs, ateliers d'équipe. Je traduis le buzz en vrais leviers pour votre métier et crée la dynamique interne.</p>
+      </article>
+      <article class="service">
+        <span class="service-num">02 — Conseil stratégique</span>
+        <h3>Audit & roadmap</h3>
+        <p>Par quoi commencer ? Quels outils choisir ? Quelle organisation pour votre stade de croissance ? Une feuille de route claire, priorisée, chiffrée.</p>
+      </article>
+      <article class="service">
+        <span class="service-num">03 — Construction & automatisation</span>
+        <h3>Outils métier sur-mesure</h3>
+        <p>Création d'outils internes, automatisation de tâches chronophages, déploiement d'agents IA. Du vrai sur-mesure, pas du template.</p>
+      </article>
+      <article class="service">
+        <span class="service-num">04 — Transmission</span>
+        <h3>Formation pratique</h3>
+        <p>Vos équipes autonomes sur ces nouvelles méthodes. Des ateliers hands-on, ancrés dans vos cas d'usage réels.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="stack" class="stack-wrap">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Mes alliés</div>
+      <h2 style="color: var(--paper);">Le meilleur de l'IA et du No-Code.</h2>
+      <p>Un stack éprouvé, combiné à du développement custom dès que le besoin l'exige. Le bon outil pour le bon besoin — pas le contraire.</p>
+    </div>
+
+    <div class="stack-groups">
+      <div class="stack-group">
+        <h4>Low-Code & No-Code</h4>
+        <ul>
+          <li>Make / n8n</li>
+          <li>Airtable</li>
+          <li>Softr</li>
+          <li>Webflow</li>
+          <li>Shopify</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>IA</h4>
+        <ul>
+          <li>Claude</li>
+          <li>Gemini</li>
+          <li>OpenAI</li>
+          <li>Mistral</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Pour aller plus loin</h4>
+        <ul>
+          <li>APIs</li>
+          <li>Webhooks</li>
+          <li>Développement custom</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Mon parcours</div>
+      <h2>Conseil, entrepreneuriat, tech.</h2>
+      <p>Dix ans à naviguer entre les trois — de la stratégie d'entreprise aux outils construits de mes mains.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2025 — aujourd'hui</div>
+        <div class="timeline-role">Consultant IA <span>Conseil, construction, formation. 12+ clients, startups et PME de 3 à 300 employés.</span></div>
+        <div class="timeline-org">FT Studio</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2022 — 2025</div>
+        <div class="timeline-role">Co-fondateur <span>Jeux et jouets de seconde main, plus de 50 000 articles vendus en ligne et en magasin. Un outil unique de création de fiches produits par l'IA.</span></div>
+        <div class="timeline-org">Kidibam</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2017 — 2023</div>
+        <div class="timeline-role">Enseignant <span>Innovation et Entrepreneuriat</span></div>
+        <div class="timeline-org">Sciences Po</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2015 — 2022</div>
+        <div class="timeline-role">Partner <span>Directeur des Opérations et de l'Innovation. Lancement de la business unit no-code / low-code.</span></div>
+        <div class="timeline-org">Fabernovel</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2014 — 2015</div>
+        <div class="timeline-role">Co-fondateur <span>Application mobile de découverte culturelle</span></div>
+        <div class="timeline-org">Swingli</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2011 — 2014</div>
+        <div class="timeline-role">Master in Management</div>
+        <div class="timeline-org">ESSEC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-wrap">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Prenons contact</div>
+        <h2>Racontez-moi votre contexte — je vous dirai où l'IA peut faire la différence.</h2>
+        <p>Un premier échange, sans engagement, pour comprendre vos enjeux et voir si on se comprend. Trente minutes suffisent souvent à y voir plus clair.</p>
+        <a href="mailto:afrancoistruong@gmail.com" class="btn-primary">Écrire un email</a>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <a href="mailto:afrancoistruong@gmail.com">
+            <span class="label">Email</span>
+            <span class="value">afrancoistruong@gmail.com</span>
+          </a>
+        </li>
+        <li>
+          <a href="tel:+33684274367">
+            <span class="label">Téléphone</span>
+            <span class="value">06 84 27 43 67</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/francoistruong" target="_blank" rel="noopener">
+            <span class="label">LinkedIn</span>
+            <span class="value">in/francoistruong</span>
+          </a>
+        </li>
+        <li>
+          <span class="label">Localisation</span>
+          <span class="value">Paris</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="brand">François Truong<span style="color: var(--bronze);">.</span></span>
+    <span>© 2026 — FT Studio · Tous droits réservés</span>
+  </div>
+</footer>
+
+</body>
+</html>
