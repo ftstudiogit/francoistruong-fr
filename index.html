@@ -131,6 +131,46 @@
     height: 6px;
     background: var(--bronze);
   }
+  .hero-main {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .hero-portrait {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-portrait img {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 30px 60px -20px rgba(44, 44, 44, 0.25),
+                0 10px 30px -10px rgba(139, 115, 85, 0.15);
+  }
+  .hero-portrait::before {
+    content: "";
+    position: absolute;
+    width: 72%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--bronze);
+    border-radius: 50%;
+    transform: translate(24px, 24px);
+    opacity: 0.4;
+    z-index: 0;
+    max-width: 260px;
+  }
+  .hero-portrait img { position: relative; z-index: 1; }
+  @media (max-width: 900px) {
+    .hero-main { grid-template-columns: 1fr; gap: 48px; }
+    .hero-portrait { order: -1; }
+    .hero-portrait img { max-width: 240px; }
+    .hero-portrait::before { display: none; }
+  }
   .eyebrow {
     font-family: var(--sans);
     font-size: 12px;
@@ -489,14 +529,21 @@
 
 <header class="hero">
   <div class="container">
-    <div class="eyebrow">Conseil IA · Paris</div>
-    <h1>De la <em>stratégie</em> à l'action.<br />L'IA qui transforme vraiment votre activité.</h1>
-    <p class="hero-lede">
-      Startups et PME, je vous accompagne pour tirer pleinement profit de l'IA — en respectant votre ADN et vos spécificités. Interlocuteur unique, de la feuille de route à la solution livrée.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Discutons de votre projet</a>
-      <a href="#approche" class="btn-secondary">Découvrir mon approche</a>
+    <div class="hero-main">
+      <div class="hero-text">
+        <div class="eyebrow">Conseil IA · Paris</div>
+        <h1>De la <em>stratégie</em> à l'action.<br />L'IA qui transforme vraiment votre activité.</h1>
+        <p class="hero-lede">
+          Startups et PME, je vous accompagne pour tirer pleinement profit de l'IA — en respectant votre ADN et vos spécificités. Interlocuteur unique, de la feuille de route à la solution livrée.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Discutons de votre projet</a>
+          <a href="#approche" class="btn-secondary">Découvrir mon approche</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="portrait.jpg" alt="Portrait de François Truong" width="720" height="720" />
+      </div>
     </div>
 
     <div class="hero-meta">
