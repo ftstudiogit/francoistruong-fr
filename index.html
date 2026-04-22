@@ -157,25 +157,11 @@
     box-shadow: 0 30px 60px -20px rgba(44, 44, 44, 0.25),
                 0 10px 30px -10px rgba(139, 115, 85, 0.15);
   }
-  .hero-portrait::before {
-    content: "";
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    max-width: 100%;
-    border: 1px solid var(--bronze);
-    border-radius: 50%;
-    transform: translate(22px, 22px);
-    opacity: 0.4;
-    z-index: 0;
-    pointer-events: none;
-  }
   @media (max-width: 900px) {
     .hero { padding: 32px 0 64px; }
     .hero-main { grid-template-columns: 1fr; gap: 28px; }
     .hero-portrait { order: -1; }
     .hero-portrait .avatar { width: 180px; height: 180px; }
-    .hero-portrait::before { display: none; }
     .hero-meta { margin-top: 40px; padding-top: 24px; gap: 28px; }
   }
   .eyebrow {
