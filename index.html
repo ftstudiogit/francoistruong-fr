@@ -118,7 +118,7 @@
 
   /* ——— HERO ——— */
   .hero {
-    padding: 120px 0 100px;
+    padding: 72px 0 80px;
     position: relative;
     overflow: hidden;
   }
@@ -171,10 +171,12 @@
     pointer-events: none;
   }
   @media (max-width: 900px) {
-    .hero-main { grid-template-columns: 1fr; gap: 48px; }
+    .hero { padding: 32px 0 64px; }
+    .hero-main { grid-template-columns: 1fr; gap: 28px; }
     .hero-portrait { order: -1; }
-    .hero-portrait .avatar { width: 220px; height: 220px; }
-    .hero-portrait::before { width: 220px; height: 220px; display: none; }
+    .hero-portrait .avatar { width: 180px; height: 180px; }
+    .hero-portrait::before { display: none; }
+    .hero-meta { margin-top: 40px; padding-top: 24px; gap: 28px; }
   }
   .eyebrow {
     font-family: var(--sans);
@@ -183,13 +185,14 @@
     text-transform: uppercase;
     color: var(--bronze);
     font-weight: 500;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
   .hero h1 {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(30px, 3.8vw, 52px);
     letter-spacing: -0.02em;
     max-width: 900px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    line-height: 1.15;
   }
   .hero h1 em {
     font-style: italic;
@@ -197,11 +200,11 @@
     color: var(--bronze);
   }
   .hero-lede {
-    font-size: 19px;
-    line-height: 1.65;
-    max-width: 640px;
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 560px;
     color: #4a4a4a;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
@@ -231,8 +234,8 @@
   .hero-meta {
     display: flex;
     gap: 48px;
-    margin-top: 72px;
-    padding-top: 40px;
+    margin-top: 56px;
+    padding-top: 32px;
     border-top: 1px solid rgba(44, 44, 44, 0.12);
     flex-wrap: wrap;
   }
@@ -539,7 +542,7 @@
         <div class="eyebrow">Conseil IA · Paris</div>
         <h1>De la <em>stratégie</em> à l'action.<br />L'IA qui transforme vraiment votre activité.</h1>
         <p class="hero-lede">
-          Startups et PME, je vous accompagne pour tirer pleinement profit de l'IA — en respectant votre ADN et vos spécificités. Interlocuteur unique, de la feuille de route à la solution livrée.
+          Startups et PME, je vous accompagne pour tirer pleinement profit de l'IA — en respectant votre ADN et vos spécificités. Je serai votre interlocuteur unique, de la feuille de route à la solution livrée.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Discutons de votre projet</a>
